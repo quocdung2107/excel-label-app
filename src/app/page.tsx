@@ -62,7 +62,7 @@ export default function ExcelToPdfClient() {
       filename: 'labels.pdf',
       image: { type: 'jpeg' as const, quality: 0.98 },
       html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'mm'as const, format: 'a4' as const, orientation: 'portrait'as const }
+      jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const }
     }
 
     // Chạy lệnh tải file trực tiếp về máy người dùng
@@ -89,14 +89,14 @@ export default function ExcelToPdfClient() {
       {isProcessing && <p>Đang xử lý dữ liệu...</p>}
 
       {/* VÙNG HIỂN THỊ HTML ĐỂ IN RA PDF (Ẩn hoặc hiện tùy bạn, ở đây để hiện để xem thử) */}
-      <div id="pdf-content" style={{ width: '210mm', background: '#fff', margin: '20px auto', color: '#000' }}>
+      <div id="pdf-content" style={{ width: '210mm',minHeight: '297mm', background: '#fff', margin: '20px auto', color: '#000' }}>
         {labels.map((label, index) => {
           // Xử lý nhóm 2 nhãn thành 1 trang A4 như logic cũ của bạn
           if (index % 2 !== 0) return null
           const nextLabel = labels[index + 1]
 
           return (
-            <div key={index} className="page" style={{ width: '210mm', minHeight: '297mm', padding: '5mm', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', pageBreakAfter: 'always' }}>
+            <div key={index} className="page" style={{ width: '210mm', padding: '5mm', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', pageBreakAfter: 'always' }}>
               {/* Nhãn 1 */}
               <div className="label" style={{ width: '100%', height: '128mm', border: '1.2mm solid #000', borderRadius: '4mm', padding: '5mm', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ textAlign: 'center', fontSize: '12mm', fontWeight: 'bold' }}>GOOD LABEL</div>
@@ -114,7 +114,7 @@ export default function ExcelToPdfClient() {
                 </div>
               </div>
 
-              <div style={{ borderTop: '0.6mm dashed #000', margin: '5mm 0' }}></div>
+              <div style={{ borderTop: '0.6mm dashed #000', margin: '10mm 0' }}></div>
 
               {/* Nhãn 2 (Nếu có) */}
               {nextLabel ? (
