@@ -110,7 +110,7 @@ export default function ExcelToPdfClient() {
                   </tbody>
                 </table>
                 <div style={{ textAlign: 'center', fontSize: '6.5mm', marginTop: '6mm' }}>
-                  RCV DATE: {excelDateToJSDate(label['Receiving date'])} {label['Cont'] ? ` - Cont: ${label['Cont']}` : ''}
+                  RCV-DATE: {excelDateToJSDate(label['Receiving date'])} {label['Cont'] ? ` - Cont: ${label['Cont']}` : ''}
                 </div>
               </div>
 
